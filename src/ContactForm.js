@@ -33,6 +33,7 @@ const ContactForm = () => {
 				name="name"
 				type="text"
 				onChange={handleChange}
+				required
 			/>
 			<input
 				className="contact__form__input middle-input"
@@ -41,6 +42,7 @@ const ContactForm = () => {
 				name="email"
 				type="text"
 				onChange={handleChange}
+				required
 			/>
 			<textarea
 				className="contact__form__input contact__textarea"
@@ -50,6 +52,7 @@ const ContactForm = () => {
 				name="message"
 				type="text"
 				onChange={handleChange}
+				required
 			></textarea>
 			<button className="contact__btn" type="submit">
 				Work With Me
