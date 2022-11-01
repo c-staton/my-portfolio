@@ -1,6 +1,6 @@
 # My Portfolio
 
-An minimilistc single page application to display my portfolio, built with React, JavaScript, and CSS.
+An minimalistic single page application to display my portfolio, built with React, JavaScript, and CSS.
 
 ## Live link:
 
