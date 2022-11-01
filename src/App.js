@@ -27,7 +27,7 @@ function App() {
 			</button>
 			<div className="wrapper">
 				<section className="intro">
-					<h1 className="intro__h1">Chris</h1>
+					<h1 className="intro__h1">Chris Staton</h1>
 					<p className="intro__title">Software Engineer & Web Developer</p>
 					<p className="intro__paragraph">
 						I'm a front-end developer eagerly looking for new technologies to
