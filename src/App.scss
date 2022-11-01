@@ -283,3 +283,9 @@ $background-dm: rgb(28 25 23);
   text-decoration: none;
   font-size: 1.25rem;
 }
+
+@media only screen and (max-width: 800px) {
+  .darkmode {
+    right: 1rem;
+  }
+}
