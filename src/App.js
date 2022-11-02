@@ -62,18 +62,24 @@ function App() {
 						techTags={["React", "Node", "PostgreSQL"]}
 						image={BDImg}
 						link="https://billdivider.netlify.app"
+						domain="billdivider.com"
+						github="https://github.com/c-staton/billdivider"
 					/>
 					<Project
 						title="Livestream Search"
 						techTags={["React", "JavaScript", "CSS"]}
 						image={LSSImg}
 						link="https://www.livestreamsearch.com"
+						domain="livestreamsearch.com"
+						github="https://github.com/c-staton/livestream-search"
 					/>
 					<Project
 						title="Sharefol.io"
 						techTags={["Python", "JavaScript", "HTML"]}
 						image={SFImg}
 						link="https://www.sharefol.io"
+						domain="sharefol.io"
+						github="https://github.com/c-staton/sharefolio"
 					/>
 				</section>
 				<section className="timeline">
