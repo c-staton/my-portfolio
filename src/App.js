@@ -29,7 +29,13 @@ function App() {
 
 	return (
 		<div className={`App ${isDark ? "dark-mode" : null}`}>
-			<button className="darkmode" onClick={switchTheme}>
+			<button
+				className="darkmode"
+				onClick={() => {
+					switchTheme();
+					gaEventTracker("Dark Mode");
+				}}
+			>
 				{isDark ? (
 					<img className="icon" src={Sun} alt="light-mode" />
 				) : (
