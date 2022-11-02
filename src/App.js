@@ -7,7 +7,12 @@ import DevTimeline from "./DevTimeline";
 import ContactForm from "./ContactForm";
 import Sun from "./images/sun.png";
 import Moon from "./images/moon.png";
-import { useState } from "react";
+import ReactGA from "react-ga";
+import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
+import { useEffect, useState } from "react";
+
+const TRACKING_ID = "UA-245661443-2"; // OUR_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
 	const [isDark, setIsDark] = useState(false);
@@ -15,6 +20,12 @@ function App() {
 	const switchTheme = () => {
 		setIsDark(!isDark);
 	};
+
+	const gaEventTracker = useAnalyticsEventTracker("Link Click");
+
+	useEffect(() => {
+		ReactGA.pageview(window.location.pathname + window.location.search);
+	}, []);
 
 	return (
 		<div className={`App ${isDark ? "dark-mode" : null}`}>
@@ -72,6 +83,7 @@ function App() {
 							href="https://www.linkedin.com/in/cstatondev/"
 							target="_blank"
 							rel="noopener noreferrer"
+							onClick={() => gaEventTracker("LinkedIn")}
 						>
 							<i class="devicon-linkedin-plain"></i>
 						</a>
@@ -80,6 +92,7 @@ function App() {
 							href="https://github.com/c-staton"
 							target="_blank"
 							rel="noopener noreferrer"
+							onClick={() => gaEventTracker("GitHub")}
 						>
 							<i class="devicon-github-original"></i>
 						</a>
