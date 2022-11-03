@@ -58,7 +58,7 @@ function App() {
 				</section>
 				<section className="projects">
 					<Project
-						title="Bill Divider (in development)"
+						title="Bill Divider"
 						techTags={["React", "Node", "PostgreSQL"]}
 						image={BDImg}
 						link="https://billdivider.netlify.app"
