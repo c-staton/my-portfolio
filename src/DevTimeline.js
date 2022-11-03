@@ -7,15 +7,15 @@ const DevTimeline = () => {
 			<h1 className="timeline__h1">Timeline</h1>
 			<div className="timeline-comp">
 				<Timeline>
-					<Event interval={"Today"} title={"Frontend Developer"}>
+					<Event interval={"Today"} title={"Front-End Developer"}>
 						I really found my passion with frontend development. I prioritize
 						user flow inside all my projects, wanting the experience for the end
 						user to be as intuitive as possible.
 					</Event>
 					<Event interval={"2022"} title={"Attend Coding Bootcamp"}>
-						In only 4 months I learned JavaScript, Python, SQL, Node, and React.
-						For the first time I could actually use code to bring my visions to
-						life, which is the coolest feeling in the world.
+						In the span of 5 months I learned JavaScript, Python, SQL, Node, and
+						React. For the first time I could actually use code to bring my
+						visions to life, which is the coolest feeling in the world.
 					</Event>
 					<Event interval={"2021"} title={"Drop Out of University"}>
 						Traditional school was never for me. I used it as a tool and took
