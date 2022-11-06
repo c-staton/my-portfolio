@@ -8,16 +8,16 @@ const DevTimeline = () => {
 			<div className="timeline-comp">
 				<Timeline>
 					<Event interval={"Today"} title={"Front-End Developer"}>
-						I really found my passion with frontend development. I prioritize
+						I really found my passion in front-end development. I prioritize
 						user flow inside all my projects, wanting the experience for the end
 						user to be as intuitive as possible.
 					</Event>
-					<Event interval={"2022"} title={"Attend Coding Bootcamp"}>
-						In the span of 5 months I learned JavaScript, Python, SQL, Node, and
-						React. For the first time I could actually use code to bring my
+					<Event interval={"2022"} title={"Software Enginnering Bootcamp"}>
+						In the span of 5 months, I learned JavaScript, Python, SQL, Node,
+						and React. For the first time, I could actually use code to bring my
 						visions to life, which is the coolest feeling in the world.
 					</Event>
-					<Event interval={"2021"} title={"Drop Out of University"}>
+					<Event interval={"2021"} title={"Leave University"}>
 						Traditional school was never for me. I used it as a tool and took
 						from it what I needed. I left with a strong core understanding of
 						computer science but lacked the skills to actually program.

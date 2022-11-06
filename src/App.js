@@ -48,12 +48,12 @@ function App() {
 					<p className="intro__title">Software Engineer & Web Developer</p>
 					<p className="intro__paragraph">
 						I'm a front-end developer eagerly looking for new technologies to
-						learn. All coding projects are built from scatch, from planning and
+						learn. All coding projects are built from scratch, from planning and
 						designing all the way to solving real-life problems with code. I
 						love building projects that can serve as standalone products with
-						solid SEO and UI making the user exeriences as intuitive as
+						solid SEO and UI making the user experiences as intuitive as
 						possible. Coming from a background in graphic design & marketing,
-						user flow is on the top of my mind with every application I develop.
+						user flow is at the top of my mind with every application I develop.
 					</p>
 				</section>
 				<section className="projects">
@@ -67,7 +67,7 @@ function App() {
 					/>
 					<Project
 						title="Livestream Search"
-						techTags={["React", "JavaScript", "CSS"]}
+						techTags={["React", "Redux", "CSS"]}
 						image={LSSImg}
 						link="https://www.livestreamsearch.com"
 						domain="livestreamsearch.com"
