@@ -47,24 +47,17 @@ function App() {
 					<h1 className="intro__h1">Chris Staton</h1>
 					<p className="intro__title">Software Engineer & Web Developer</p>
 					<p className="intro__paragraph">
-						I'm a front-end developer eagerly looking for new technologies to
+						I'm a software engineer eagerly looking for new technologies to
 						learn. All coding projects are built from scratch, from planning and
 						designing all the way to solving real-life problems with code. I
 						love building projects that can serve as standalone products with
-						solid SEO and UI making the user experiences as intuitive as
+						solid SEO and UI, making the user experiences as intuitive as
 						possible. Coming from a background in graphic design & marketing,
-						user flow is at the top of my mind with every application I develop.
+						user experience is at the top of my mind with every application I
+						develop.
 					</p>
 				</section>
 				<section className="projects">
-					<Project
-						title="Bill Divider"
-						techTags={["React", "Node", "PostgreSQL"]}
-						image={BDImg}
-						link="https://billdivider.netlify.app"
-						domain="billdivider.com"
-						github="https://github.com/c-staton/billdivider"
-					/>
 					<Project
 						title="Livestream Search"
 						techTags={["React", "Redux", "CSS"]}
@@ -72,6 +65,14 @@ function App() {
 						link="https://www.livestreamsearch.com"
 						domain="livestreamsearch.com"
 						github="https://github.com/c-staton/livestream-search"
+					/>
+					<Project
+						title="Bill Divider"
+						techTags={["React", "Node", "PostgreSQL"]}
+						image={BDImg}
+						link="https://billdivider.netlify.app"
+						domain="billdivider.com"
+						github="https://github.com/c-staton/billdivider"
 					/>
 					<Project
 						title="Sharefol.io"

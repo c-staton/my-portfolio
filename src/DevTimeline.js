@@ -7,25 +7,26 @@ const DevTimeline = () => {
 			<h1 className="timeline__h1">Timeline</h1>
 			<div className="timeline-comp">
 				<Timeline>
-					<Event interval={"Today"} title={"Front-End Developer"}>
-						I really found my passion in front-end development. I prioritize
-						user flow inside all my projects, wanting the experience for the end
-						user to be as intuitive as possible.
+					<Event interval={"Today"} title={"Software Engineer"}>
+						I found my passion in software engineering and web development.
+						Building all my projects from the ground up, I prioritize the end
+						user’s experience by incorporating intuitive designs.
 					</Event>
-					<Event interval={"2022"} title={"Software Enginnering Bootcamp"}>
-						In the span of 5 months, I learned JavaScript, Python, SQL, Node,
-						and React. For the first time, I could actually use code to bring my
-						visions to life, which is the coolest feeling in the world.
+					<Event interval={"2022"} title={"Accelerated My Learning"}>
+						In 5 months, I learned how to build full-stack applications in
+						Springboard's Software Engineering Career Track. Then, for the first
+						time, I could use code to bring my visions to life.
 					</Event>
-					<Event interval={"2021"} title={"Leave University"}>
-						Traditional school was never for me. I used it as a tool and took
-						from it what I needed. I left with a strong core understanding of
-						computer science but lacked the skills to actually program.
+					<Event interval={"2021"} title={"Always More to Learn"}>
+						I used the university as a tool and learned the core computer
+						science concepts the traditional way. I knew how to code but needed
+						to gain the skills to program and apply code to real-world
+						applications.
 					</Event>
 					<Event interval={"2018"} title={"Major in Computer Science"}>
 						I started my coding journey with the traditional route of attending
-						university. I learned C++ as my very first language which gave me a
-						very solid understanding of programming fundamentals.
+						university. I learned C++ as my first language, which gave me an
+						excellent understanding of programming fundamentals.
 					</Event>
 				</Timeline>
 			</div>
