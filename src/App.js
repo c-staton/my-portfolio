@@ -70,7 +70,7 @@ function App() {
 						title="Bill Divider"
 						techTags={["React", "Node", "PostgreSQL"]}
 						image={BDImg}
-						link="https://billdivider.netlify.app"
+						link="https://billdivider.com"
 						domain="billdivider.com"
 						github="https://github.com/c-staton/billdivider"
 					/>
