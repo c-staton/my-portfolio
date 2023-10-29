@@ -1,33 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Timeline, Event } from "react-timeline-scribble";
+import TimelineEvent from './TimelineEvent';
 
 const DevTimeline = () => {
+	const [emoteClick1, setEmoteClick1] = useState(0);
+
+
 	return (
 		<div className="dev-timeline">
 			<h1 className="timeline__h1">Timeline</h1>
 			<div className="timeline-comp">
 				<Timeline>
-					<Event interval={"Today"} title={"Software Engineer"}>
-						I found my passion in software engineering and web development.
-						Building all my projects from the ground up, I prioritize the end
-						user’s experience by incorporating intuitive designs.
-					</Event>
-					<Event interval={"2022"} title={"Accelerated My Learning"}>
-						In 5 months, I learned how to build full-stack applications in
-						Springboard's Software Engineering Career Track. Then, for the first
-						time, I could use code to bring my visions to life.
-					</Event>
-					<Event interval={"2021"} title={"Always More to Learn"}>
-						I used the university as a tool and learned the core computer
-						science concepts the traditional way. I knew how to code but needed
-						to gain the skills to program and apply code to real-world
-						applications.
-					</Event>
-					<Event interval={"2018"} title={"Major in Computer Science"}>
-						I started my coding journey with the traditional route of attending
-						university. I learned C++ as my first language, which gave me an
-						excellent understanding of programming fundamentals.
-					</Event>
+					<TimelineEvent interval='NOW' emote='👨🏻‍💻' title='I develop software!'>
+						With all my new tools aquired, I found my passion
+						in web development. From concept to completion,
+						I craft each project with a user-centric approach,
+						ensuring an intuitive and seamless experience.
+					</TimelineEvent>
+					<TimelineEvent interval='2022' emote='👷🏻‍♂️' title='I can build things!'>
+						At the beginning of 2022, I took a pivotal step by
+						joining a software engineering bootcamp. This adventure
+						taught me the joys of building full-stack projects
+						from the ground up. The empowerment of turning ideas
+						into tangible applications was nothing short of exhilarating.
+					</TimelineEvent>
+					<TimelineEvent interval='2021' emote='🧐' title='I can do math!'>
+						In college, I tackled courses like the full calculus series,
+						linear algebra, discrete mathematics, and assembly language
+						programming. While these subjects provided me with a rich
+						understanding of coding fundamentals, I recognized I needed
+						to bridge the gap between theoretical knowledge and bringing
+						applications to life.
+					</TimelineEvent>
+					<TimelineEvent interval='2018' emote='🥳' title='I can code!'>
+						I began my coding journey with C++ and MATLAB as my foundational
+						languages. Through the precise and detailed nature of C++, I
+						acquired a robust understanding of core computer science concepts.
+					</TimelineEvent>
 				</Timeline>
 			</div>
 		</div>

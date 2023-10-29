@@ -1,8 +1,8 @@
 import "./App.scss";
 import Project from "./Project";
 import LSSImg from "./images/LSS.jpg";
-import BDImg from "./images/BD.jpg";
-import SFImg from "./images/SF.jpg";
+import SMImg from "./images/SM.jpg";
+import CCRImg from "./images/CCR.jpg";
 import DevTimeline from "./DevTimeline";
 import ContactForm from "./ContactForm";
 import Sun from "./images/sun.png";
@@ -16,10 +16,18 @@ ReactGA.initialize(TRACKING_ID);
 
 function App() {
 	const [isDark, setIsDark] = useState(false);
+	const [click, setClick] = useState(0);
 
 	const switchTheme = () => {
 		setIsDark(!isDark);
 	};
+
+	useEffect(() => {
+		setClick(1);
+		setInterval(() => {
+			setClick(1);
+		}, [8000]);
+	}, []);
 
 	const gaEventTracker = useAnalyticsEventTracker("Link Click");
 
@@ -44,42 +52,49 @@ function App() {
 			</button>
 			<div className="wrapper">
 				<section className="intro">
-					<h1 className="intro__h1">Chris Staton</h1>
+					<h1
+						id='my-name'
+						onClick={() => setClick(1)}
+						className="intro__h1 shine"
+						onAnimationEnd={() => setClick(0)}
+						click={click}
+					>Chris Staton</h1>
 					<p className="intro__title">Software Engineer & Web Developer</p>
 					<p className="intro__paragraph">
-						I'm a software engineer eagerly looking for new technologies to
-						learn. All coding projects are built from scratch, from planning and
-						designing all the way to solving real-life problems with code. I
-						love building projects that can serve as standalone products with
-						solid SEO and UI, making the user experiences as intuitive as
-						possible. Coming from a background in graphic design & marketing,
-						user experience is at the top of my mind with every application I
-						develop.
+						As a software engineer, I continuously seek emerging
+						technologies to master. Every project I undertake is
+						meticulously crafted from inception to execution,
+						reflecting a blend of thoughtful planning, design,
+						and implementation. I'm deeply passionate about
+						creating not just applications, but distinct digital
+						brands accentuated with robust SEO and user-centric UI.
+						With a foundation in graphic design and marketing, I
+						prioritize user experience in every application I develop,
+						ensuring intuitive and engaging interactions.
 					</p>
 				</section>
 				<section className="projects">
 					<Project
-						title="Livestream Search"
-						techTags={["React", "Redux", "CSS"]}
-						image={LSSImg}
+						title="Project 3"
+						techTags={["React Native?", "TBD1", "TBD2"]}
 						link="https://www.livestreamsearch.com"
-						domain="livestreamsearch.com"
+						domain="project3.com"
 						github="https://github.com/c-staton/livestream-search"
 					/>
 					<Project
-						title="Bill Divider"
-						techTags={["React", "Node", "PostgreSQL"]}
-						image={BDImg}
-						link="https://billdivider.com"
-						domain="billdivider.com"
+						title="ScapeMaps"
+						techTags={["React", "Python", "Flask"]}
+						image={SMImg}
+						link="https://scapemaps.com"
+						domain="scapemaps.com"
 						github="https://github.com/c-staton/billdivider"
 					/>
 					<Project
-						title="Sharefol.io"
-						techTags={["Python", "JavaScript", "HTML"]}
-						image={SFImg}
-						link="https://www.sharefol.io"
-						domain="sharefol.io"
+						title="Casa Carlos"
+						techTags={["React", "JavaScript", "CSS"]}
+						image={CCRImg}
+						link="https://casacarlosrestaurant.com"
+						domain="casacarlosrestaurant.com"
 						github="https://github.com/c-staton/sharefolio"
 					/>
 				</section>
