@@ -1,15 +1,13 @@
 import "./App.scss";
 import Project from "./Project";
-import TMGImg from "./images/TMG.jpg";
-import EMCImg from "./images/EMC.jpg";
-import CCRImg from "./images/CCR.jpg";
 import DevTimeline from "./DevTimeline";
 import ContactForm from "./ContactForm";
 import Sun from "./images/sun.png";
 import Moon from "./images/moon.png";
 import ReactGA from "react-ga";
 import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { projects } from './data/projects';
 
 const TRACKING_ID = "UA-245661443-2"; // OUR_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
@@ -17,8 +15,11 @@ ReactGA.initialize(TRACKING_ID);
 const CURRENT_YEAR = new Date().getFullYear();
 
 function App() {
+    const ref = useRef();
+
     const [isDark, setIsDark] = useState(false);
     const [click, setClick] = useState(0);
+    const [coords, setCoords] = useState({ x: '', y: '' });
 
 
     const switchTheme = () => {
@@ -38,8 +39,16 @@ function App() {
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, []);
 
+    const handleClick = (e) => {
+        console.log(e.target);
+        Object.assign(ref.current.style, {
+            transformOrigin: `${e.pageX}px ${e.pageY}px`
+        });
+        ref.current.classList.add('zoomed-in');
+    };
+
     return (
-        <div className={`App ${isDark ? "dark-mode" : null}`}>
+        <div ref={ref} className={`app ${isDark ? "dark-mode" : ''}`}>
             <button
                 className="darkmode"
                 onClick={() => {
@@ -74,27 +83,16 @@ function App() {
                     </p>
                 </section>
                 <section className="projects">
-                    <Project
-                        title="twomoons.gg"
-                        techTags={["Flask", "Socket.io", "MySQL"]}
-                        image={TMGImg}
-                        link="https://twomoons.gg"
-                        domain="twomoons.gg"
-                    />
-                    <Project
-                        title="evenMoreCode"
-                        techTags={["React", "Node.js", "Prisma"]}
-                        image={EMCImg}
-                        link="https://evenmorecode.com"
-                        domain="evenmorecode.com"
-                    />
-                    <Project
-                        title="Casa Carlos"
-                        techTags={["React", "JavaScript", "CSS"]}
-                        image={CCRImg}
-                        link="https://casacarlosrestaurant.com"
-                        domain="casacarlosrestaurant.com"
-                    />
+                    {projects.map((p) => (
+                        <Project
+                            title={p.title}
+                            techTags={p.techTags}
+                            image={p.image}
+                            link={p.link}
+                            domain={p.domain}
+                            onClick={handleClick}
+                        />
+                    ))}
                 </section>
                 <section className="timeline">
                     <DevTimeline />

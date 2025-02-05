@@ -2,23 +2,9 @@ import React, { useState } from "react";
 import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
 import "./Project.css";
 
-const Project = ({ title, techTags, image, link, github, domain }) => {
-    const [visibleLinks, setVisibleLinks] = useState(false);
+const Project = ({ title, techTags, image, link, github, domain, onClick }) => {
     const [wobble, setWobble] = useState(0);
     const gaEventTracker = useAnalyticsEventTracker("Project Click");
-
-    const showLinks = () => {
-        setVisibleLinks(true);
-    };
-
-    const mobileToggle = () => {
-        setVisibleLinks(!visibleLinks);
-        setWobble(1);
-    };
-
-    const hideLinks = () => {
-        setVisibleLinks(false);
-    };
 
     return (
         <div
@@ -26,9 +12,7 @@ const Project = ({ title, techTags, image, link, github, domain }) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={mobileToggle}
-            onMouseOver={showLinks}
-            onMouseOut={hideLinks}
+            onClick={onClick}
             onAnimationEnd={() => setWobble(0)}
             wobble={wobble}
         >
