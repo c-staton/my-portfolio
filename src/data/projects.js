@@ -1,6 +1,7 @@
 import TMGImg from "../images/TMG.jpg";
 import EMCImg from "../images/EMC.jpg";
 import CCRImg from "../images/CCR.jpg";
+import LLImg from "../images/LL.png";
 
 const projects = [
     {
@@ -9,6 +10,13 @@ const projects = [
         "image": TMGImg,
         "link": "https://twomoons.gg",
         "domain": "twomoons.gg"
+    },
+    {
+        "title": "LecturaLab",
+        "techTags": ["React", "Express", "OpenAI"],
+        "image": LLImg,
+        "link": "https://lecturalab.com",
+        "domain": "lecturalab.com"
     },
     {
         "title": "evenMoreCode",
@@ -22,8 +30,8 @@ const projects = [
         "techTags": ["React", "JavaScript", "CSS"],
         "image": CCRImg,
         "link": "https://casacarlosrestaurant.com",
-        "domain": "ecasacarlosrestaurant.com"
-    },
+        "domain": "casacarlosrestaurant.com"
+    }
 ];
 
 export {

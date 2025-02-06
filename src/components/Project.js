@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
-import "./Project.css";
+import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
 
 const Project = ({ title, techTags, image, link, github, domain, onClick }) => {
     const [wobble, setWobble] = useState(0);
@@ -48,7 +47,7 @@ const Project = ({ title, techTags, image, link, github, domain, onClick }) => {
                     />
                 )}
             </div>
-            <div className="card__info">
+            <div className="card__info shake" wobble={wobble}>
                 <h3 className="card__info--title">{title}</h3>
                 <div className="card__info--tech">
                     {techTags.map((tag) => (
