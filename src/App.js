@@ -134,11 +134,7 @@ function App() {
                     <section className="projects">
                         {projects.map((p, idx) => (
                             <Project
-                                title={p.title}
-                                techTags={p.techTags}
-                                image={p.image}
-                                link={p.link}
-                                domain={p.domain}
+                                project={p}
                                 onClick={(e) => handleClick(e, idx)}
                             />
                         ))}
