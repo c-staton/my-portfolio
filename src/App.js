@@ -3,14 +3,10 @@ import DevTimeline from "./components/DevTimeline";
 import ContactForm from "./components/ContactForm";
 import Sun from "./images/sun.png";
 import Moon from "./images/moon.png";
-import ReactGA from "react-ga";
-import useAnalyticsEventTracker from "./hooks/useAnalyticsEventTracker";
 import { useEffect, useRef, useState } from "react";
 import { projects } from './data/projects';
 import Spotlight from './components/Spotlight';
-
-const TRACKING_ID = "UA-245661443-2"; // OUR_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
+import posthog from 'posthog-js';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -38,12 +34,6 @@ function App() {
             setIsDark(value);
         }
 
-    }, []);
-
-    const gaEventTracker = useAnalyticsEventTracker("Link Click");
-
-    useEffect(() => {
-        ReactGA.pageview(window.location.pathname + window.location.search);
     }, []);
 
     const getCenterCoords = (element) => {
@@ -91,6 +81,7 @@ function App() {
             newIdx = spotlightIdx - 1;
         }
         setSpotlightIdx(newIdx);
+        posthog.capture(`spotlighting ${projects[spotlightIdx].title}`);
 
         const projectCards = document.querySelectorAll('.card');
         const currCard = projectCards[newIdx];
@@ -116,7 +107,7 @@ function App() {
                     className="darkmode"
                     onClick={() => {
                         switchTheme();
-                        gaEventTracker("Dark Mode");
+                        posthog.capture("Dark Mode");
                     }}
                 >
                     {isDark ? (
@@ -160,7 +151,7 @@ function App() {
                                 href="https://www.linkedin.com/in/cstatondev/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={() => gaEventTracker("LinkedIn")}
+                                onClick={() => posthog.capture("LinkedIn")}
                             >
                                 <i class="devicon-linkedin-plain"></i>
                             </a>
@@ -169,7 +160,7 @@ function App() {
                                 href="https://github.com/c-staton"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={() => gaEventTracker("GitHub")}
+                                onClick={() => posthog.capture("GitHub")}
                             >
                                 <i class="devicon-github-original"></i>
                             </a>
