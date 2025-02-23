@@ -8,7 +8,7 @@ const DevTimeline = () => {
             <h1 className="timeline__h1">Timeline</h1>
             <div className="timeline-comp">
                 <Timeline>
-                    <TimelineEvent interval='NOW' emote='👨🏻‍💻' title='I can software!'>
+                    <TimelineEvent interval='NOW' emote='👨🏻‍💻' title='I can engineer!'>
                         With all my new tools aquired, I found my passion
                         in web development. From concept to completion,
                         I craft each project with a user-centric approach,
@@ -21,7 +21,7 @@ const DevTimeline = () => {
                         from the ground up. The empowerment of turning ideas
                         into tangible applications was nothing short of exhilarating.
                     </TimelineEvent>
-                    <TimelineEvent interval='2021' emote='🧐' title='I can math!'>
+                    <TimelineEvent interval='2021' emote='🧐' title='I can compute!'>
                         In college, I tackled courses like the full calculus series,
                         linear algebra, discrete mathematics, and assembly language
                         programming. While these subjects provided me with a rich
