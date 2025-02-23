@@ -7,6 +7,7 @@ $background-dm: rgb(28 25 23);
     right: 0;
     left: 0;
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
     background-color: #fff;
     z-index: 99;
@@ -151,7 +152,7 @@ $background-dm: rgb(28 25 23);
             svg {
                 margin-top: 5px;
                 height: 18px;
-                width: fit-content;
+                width: 18px;
             }
 
             &:hover {
@@ -226,6 +227,17 @@ $background-dm: rgb(28 25 23);
 
     img {
         cursor: pointer;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .loading-placeholder {
+        aspect-ratio: 16/9;
+        width: 100%;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
     }
 
     .slider-pops {

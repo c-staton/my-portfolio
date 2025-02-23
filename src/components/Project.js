@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
 
 const Project = ({ project, onClick }) => {
     const [wobble, setWobble] = useState(0);
-    const gaEventTracker = useAnalyticsEventTracker("Project Click");
 
     return (
         <div
