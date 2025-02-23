@@ -17,7 +17,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 function App() {
     const ref = useRef();
 
-    const [isDark, setIsDark] = useState(false);
+    const [isDark, setIsDark] = useState(true);
     const [click, setClick] = useState(0);
 
     const [fullOpen, setFullOpen] = useState(false);
