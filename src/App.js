@@ -25,11 +25,19 @@ function App() {
     const [spotlightIdx, setSpotlightIdx] = useState(null);
 
     const switchTheme = () => {
+        window.localStorage.setItem('isDark', !isDark);
         setIsDark(!isDark);
     };
 
     useEffect(() => {
         setClick(1);
+
+        const localSetting = window.localStorage.getItem('isDark');
+        if (localSetting) {
+            const value = JSON.parse(localSetting);
+            setIsDark(value);
+        }
+
     }, []);
 
     const gaEventTracker = useAnalyticsEventTracker("Link Click");

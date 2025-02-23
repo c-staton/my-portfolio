@@ -11,7 +11,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     overflow-y: auto;
+}
 
+* {
+    box-sizing: border-box;
 }
 
 .app {
@@ -77,6 +80,7 @@ body {
     font-weight: 700;
     user-select: none;
     cursor: pointer;
+    line-height: 1;
 }
 
 .intro__title {
@@ -263,6 +267,10 @@ body {
     -webkit-user-select: none;
     touch-action: manipulation;
     width: max-content;
+
+    @media(max-width:800px) {
+        margin: auto;
+    }
 }
 
 .contact__btn:hover {
@@ -420,13 +428,13 @@ body {
 
 .zoomed-in {
     animation: zoom-in 0.4s;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     // transform: scale(1.6);
 }
 
 .zoomed-out {
     animation: zoom-out 0.4s;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     // transform: scale(1);
 }
 
@@ -434,7 +442,7 @@ body {
     0% {
         transform: scale(1);
     }
-    
+
     100% {
         transform: scale(1.6);
     }
@@ -444,8 +452,32 @@ body {
     0% {
         transform: scale(1.6);
     }
-    
+
     100% {
         transform: scale(1);
+    }
+}
+
+.btn {
+    text-transform: uppercase;
+    font-family: inherit;
+    font-weight: bold;
+    border: none;
+    padding: 8px 15px;
+    font-size: 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    background-color: $background-dm;
+    color: #fff;
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+    text-wrap: nowrap;
+    align-items: center;
+
+    svg {
+        fill: #fff;
+        height: 20px;
     }
 }
