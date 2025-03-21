@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import { projects } from './data/projects';
 import Spotlight from './components/Spotlight';
 import posthog from 'posthog-js';
+import ProjectGallery from './components/gallery/ProjectGallery';
+import Section from './components/Section';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -103,7 +105,7 @@ function App() {
                 handlePrev={spotlightIdx > 0 ? () => handleSwipe(false) : null}
             />
             <div ref={ref} className='app'>
-                <button
+                {/* <button
                     className="darkmode"
                     onClick={() => {
                         switchTheme();
@@ -115,7 +117,7 @@ function App() {
                     ) : (
                         <img className="icon" src={Moon} alt="dark-mode" />
                     )}
-                </button>
+                </button> */}
                 <div className="wrapper">
                     <section className="intro">
                         <h1
@@ -130,6 +132,9 @@ function App() {
                             I'm a full-stack software engineer with 3 years of experience in React for frontend development and Flask/Node.js for backend APIs across different projects.
                         </p>
                     </section>
+                    <Section title='Projects'>
+                        <ProjectGallery />
+                    </Section>
                     <section className="projects">
                         {projects.map((p, idx) => (
                             <Project

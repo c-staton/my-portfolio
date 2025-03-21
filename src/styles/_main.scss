@@ -4,13 +4,20 @@
 $text-dm: white;
 $background-dm: rgb(28 25 23);
 
+$main:   #c4b5fd;
+$accent:    #9EBCA6;
+$action:   #c4b5fd;
+$bg: #ffffff;
+$dark:   #272827;
+
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: "Montserrat", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     overflow-y: auto;
+    background-color: $bg;
 }
 
 * {
@@ -62,6 +69,9 @@ body {
 .wrapper {
     margin: auto;
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .intro {
@@ -480,4 +490,187 @@ body {
         fill: #fff;
         height: 20px;
     }
+}
+
+.proj-gallery-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .proj-title, .proj-description {
+        width: 100%;
+        background-color: $dark;
+        text-align: left;
+        padding: 12px;
+        border-radius: 3px;
+        color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    }
+
+    .proj-title {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 22px;
+    }
+}
+
+.proj-gallery {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    align-items: stretch; // ensures both columns fill the full height
+
+    .main-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 6;
+        
+        // Ensure images (or the content inside ImageViewer) fill the container
+        img {
+            border: 8px solid $dark;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+      }
+
+    &__sidebar {
+        position: relative;
+        z-index: 4;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        gap: 20px;
+        overflow: hidden;
+        padding: 0 20px;
+        margin-right: -20px;
+    
+        .scroll-content,
+        .top-box {
+          height: 100%;
+        }
+
+        .float-box {
+            cursor: pointer;
+            background-color: $dark;
+        }
+
+        .sidebar-content {
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+            height: 100%;
+            gap: 10px;
+        }
+
+        .top-box {
+            height: 100%;
+            width: 100%;
+
+            .float-box {
+                margin-bottom: 10px;
+                height: calc(100% - 10px);
+            }
+        }
+
+        button {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            border: none;
+            background-color: $action;
+            z-index: 2;
+            border-radius: 3px;
+            cursor: pointer;
+
+            svg {
+                width: 30px;
+                height: 30px;
+                fill: $dark;
+            }
+        }
+
+        .scroll-content {
+            height: 100%;
+            width: 100%;
+
+            .float-box {
+                height: calc(50% - 10px);
+                margin-bottom: 20px;
+            }
+        }
+    } 
+}
+
+.float-box {
+    width: 100%;
+    height: 100%;
+    background: $bg;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .project-logo {
+        max-height: 80px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+        padding: 0 20px;
+        font-weight: bold;
+    }
+
+    svg {
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+
+.section {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    height: fit-content;
+    width: 100%;
+    gap: 20px;
+    max-width: 1000px;
+
+    &-title {
+        height: 100%;
+        background-color: $main;
+        text-align: left;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        white-space: pre-line;
+        word-break: break-all;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 20px 5px;
+        font-weight: bold;
+        color: $dark;
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    }
+}
+
+.bg-spot {
+    position: absolute;
+    width: 95%;
+    height: 32px;
+    background-color: $bg;
+    bottom: 0;
 }

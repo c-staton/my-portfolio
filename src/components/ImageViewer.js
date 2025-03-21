@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ReactComponent as DownArrow } from '../images/down-arrow.svg';
 
 const ImageViewer = ({ images = [], color }) => {
     const [currIdx, setCurrIdx] = useState(0);
@@ -37,32 +38,34 @@ const ImageViewer = ({ images = [], color }) => {
         preloadImages();
     }, [images]);
 
+    const handleBack = () => {
+        setCurrIdx((prevIdx) => (prevIdx === 0 ? images.length - 1 : prevIdx - 1));
+    };
+
     const handleNext = () => {
         setCurrIdx((prevIdx) => (prevIdx === images.length - 1 ? 0 : prevIdx + 1));
     };
 
     return (
-        <div className="image-viewer">
-            {isLoading ? (
-                <div className="loading-placeholder">Loading...</div>
-            ) : (
-                <img
-                    onClick={handleNext}
-                    src={images.length > 0 ? images[currIdx] : null}
-                    alt=""
-                    style={{
-                        border: `2px solid ${color}`,
-                        opacity: imageCache.has(images[currIdx]) ? 1 : 0,
-                    }}
-                    loading="eager"
-                    decoding="async"
-                />
-            )}
-            <div className="slider-pops">
+        <div className='image-viewer'>
+            <img
+                onClick={handleNext}
+                src={images.length > 0 ? images[currIdx] : null}
+                alt=''
+                loading='eager'
+                decoding='async'
+            />
+            <div className='nav-arrow back' onClick={handleBack}>
+                <DownArrow />
+            </div>
+            <div className='nav-arrow forward' onClick={handleNext}>
+                <DownArrow />
+            </div>
+            <div className='slider-pops'>
                 {images.map((_, idx) => (
                     <div
                         key={idx}
-                        className={idx === currIdx ? "selected" : ""}
+                        className={idx === currIdx ? 'selected' : ''}
                         onClick={() => setCurrIdx(idx)}
                     />
                 ))}
