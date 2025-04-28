@@ -1,8 +1,6 @@
 import React from 'react';
 import Card from './Card';
 import { ReactComponent as Logo } from '../images/cs-logo.svg';
-
-import { scrollTo } from '../services/utils';
 import ArrowSectionScroll from './ArrowSectionScroll';
 
 const BusinessCard = () => {
