@@ -5,7 +5,6 @@ const MAX_TILT = 10;
 const Card = ({ frontContent, backContent, className }) => {
     const [tiltDeg, setTiltDeg] = useState({ x: 0, y: 0 });
     const [isFlipped, setIsFlipped] = useState(false);
-    const [flipDirection, setFlipDirection] = useState('right');
     const [rotationDegrees, setRotationDegrees] = useState(0);
     const cardRef = useRef(null);
 
@@ -38,7 +37,6 @@ const Card = ({ frontContent, backContent, className }) => {
         const centerX = rect.width / 2;
 
         const newDirection = mouseX < centerX ? 'left' : 'right';
-        setFlipDirection(newDirection);
 
         // Add or subtract 180 degrees based on direction
         const rotationChange = newDirection === 'left' ? -180 : 180;
