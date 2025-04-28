@@ -1,0 +1,287 @@
+#card-section {
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(50% 50% at 50% 50%, $bg 64%, #D9D9D9 100%);
+    width: 100%;
+}
+
+.business-card {
+    width: 500px;
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin: 20px;
+    color: $off-white;
+    // background-color: $dark;
+
+    .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        transform-style: preserve-3d;
+        box-shadow:
+            0 4px 8px rgba(0, 0, 0, 0.1),
+            0 8px 16px rgba(0, 0, 0, 0.1);
+        will-change: transform;
+
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            box-shadow:
+                0 8px 16px rgba(0, 0, 0, 0.1),
+                0 16px 32px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            pointer-events: none;
+        }
+    }
+
+    .card-front,
+    .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #272827 0%, #1a1a1a 100%);
+        ;
+        pointer-events: none;
+        transform: translateZ(1px);
+        /* Force GPU acceleration */
+        overflow: hidden;
+
+    }
+
+    .card-front {
+        background: linear-gradient(60.46deg, #272827 2.72%, #525252 111.3%);
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -40%;
+            width: 120%;
+            height: 80%;
+            background-color: $main;
+            transform: rotate(-40deg);
+            z-index: -1;
+            opacity: 0.9;
+        }
+
+        svg {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            bottom: 15px;
+            right: 15px;
+        }
+    }
+
+    .card-back {
+        transform: rotateY(180deg) translateZ(1px);
+        color: white;
+        background: linear-gradient(60.46deg, #272827 2.72%, #525252 111.3%);
+
+
+        a {
+            pointer-events: auto;
+        }
+    }
+
+    &:hover {
+        .card-inner::after {
+            opacity: 1;
+        }
+    }
+
+    .card-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 5px;
+        color: #FFFFEE;
+
+        &.back {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr;
+            height: 100%;
+            justify-content: center;
+
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                align-self: center;
+
+                h4 {
+                    font-size: 22px;
+                    margin: 0;
+                }
+            }
+
+            .skills {
+                display: flex;
+                gap: 80px;
+                border-top: 1px solid #FFFFEE;
+
+                ul {
+                    text-align: left;
+                    font-size: 22px;
+                    font-weight: bold;
+                    padding-inline-start: 16px;
+                }
+            }
+        }
+
+        h2 {
+            font-size: 38px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        span {
+            font-size: 18px;
+        }
+
+        .title {
+            font-size: 16px;
+            margin: 0 0 20px 0;
+            opacity: 0.8;
+        }
+
+        .skills {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            span {
+                background: rgba(0, 0, 0, 0.1);
+                padding: 4px 12px;
+                border-radius: 15px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: inherit;
+                text-decoration: none;
+                font-size: 16px;
+                transition: transform 0.2s ease;
+
+                i {
+                    font-size: 24px;
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+.arrow-container {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 26px;
+    cursor: pointer;
+    width: fit-content;
+    margin: 0 auto;
+    color: #000;
+    transition: all 0.5s ease;
+
+    &:hover {
+        transform: scale(1.08);
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    animation: infinite colors 5s ease-in-out;
+
+    @keyframes colors {
+        0% {
+            color: $dark;
+            fill: $dark;
+        }
+
+        25% {
+            /* Start transitioning to main */
+            color: $dark;
+            fill: $dark;
+        }
+
+        50% {
+            /* Peak main color */
+            color: $main;
+            fill: $main;
+        }
+
+        75% {
+            /* Start transitioning back to dark */
+            color: $main;
+            fill: $main;
+        }
+
+        100% {
+            /* Back to dark */
+            color: $dark;
+            fill: $dark;
+        }
+    }
+}
+
+
+.dark-mode {
+    .business-card {
+        .card-front {
+            background: linear-gradient(135deg, $dark 0%, darken($dark, 5%) 100%);
+            color: $text-dm;
+            border-color: rgba(255, 255, 255, 0.1);
+
+            .skills span {
+                background: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, darken($dark, 5%) 0%, darken($dark, 10%) 100%);
+        }
+    }
+}

@@ -9,146 +9,28 @@ import Spotlight from './components/Spotlight';
 import posthog from 'posthog-js';
 import ProjectGallery from './components/gallery/ProjectGallery';
 import Section from './components/Section';
+import Card from './components/Card';
+import BusinessCard from './components/BusinessCard';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 function App() {
     const ref = useRef();
 
-    const [isDark, setIsDark] = useState(true);
-    const [click, setClick] = useState(0);
-
-    const [fullOpen, setFullOpen] = useState(false);
-    const [partialOpen, setPartialOpen] = useState(false);
-    const [spotlightIdx, setSpotlightIdx] = useState(null);
-
-    const switchTheme = () => {
-        window.localStorage.setItem('isDark', !isDark);
-        setIsDark(!isDark);
-    };
-
-    useEffect(() => {
-        setClick(1);
-
-        const localSetting = window.localStorage.getItem('isDark');
-        if (localSetting) {
-            const value = JSON.parse(localSetting);
-            setIsDark(value);
-        }
-
-    }, []);
-
-    const getCenterCoords = (element) => {
-        const rect = element.getBoundingClientRect();
-        const x = rect.left + rect.width / 2;
-        const y = rect.top + rect.height;
-        return {
-            x, y
-        };
-    };
-
-    const handleClick = (e, idx) => {
-        const { x, y } = getCenterCoords(e.currentTarget);
-        Object.assign(ref.current.style, {
-            transformOrigin: `${x}px ${y}px`
-        });
-        if (ref.current.classList.contains('zoomed-out')) {
-            ref.current.classList.remove('zoomed-out');
-        }
-        ref.current.classList.add('zoomed-in');
-        setSpotlightIdx(idx);
-        setPartialOpen(true);
-        setTimeout(() => {
-            setFullOpen(true);
-            const body = document.querySelector('body');
-            body.style.overflow = 'hidden';
-        }, 500);
-
-    };
-
-    const handleClose = () => {
-        setFullOpen(false);
-        setPartialOpen(false);
-        ref.current.classList.add('zoomed-out');
-        setTimeout(() => {
-            setSpotlightIdx(null);
-        }, 500);
-        const body = document.querySelector('body');
-        body.style.overflow = 'auto';
-    };
-
-    const handleSwipe = (forward = true) => {
-        let newIdx = spotlightIdx + 1;
-        if (!forward) {
-            newIdx = spotlightIdx - 1;
-        }
-        setSpotlightIdx(newIdx);
-        posthog.capture(`spotlighting ${projects[spotlightIdx].title}`);
-
-        const projectCards = document.querySelectorAll('.card');
-        const currCard = projectCards[newIdx];
-
-        const { x, y } = getCenterCoords(currCard);
-        Object.assign(ref.current.style, {
-            transformOrigin: `${x}px ${y}px`
-        });
-    };
-
     return (
-        <div className={isDark ? "dark-mode" : ''}>
-            <Spotlight
-                fullOpen={fullOpen}
-                partialOpen={partialOpen}
-                spotlightIdx={spotlightIdx}
-                handleClose={handleClose}
-                handleNext={spotlightIdx < projects.length - 1 ? () => handleSwipe(true) : null}
-                handlePrev={spotlightIdx > 0 ? () => handleSwipe(false) : null}
-            />
+        <div>
             <div ref={ref} className='app'>
-                {/* <button
-                    className="darkmode"
-                    onClick={() => {
-                        switchTheme();
-                        posthog.capture("Dark Mode");
-                    }}
-                >
-                    {isDark ? (
-                        <img className="icon" src={Sun} alt="light-mode" />
-                    ) : (
-                        <img className="icon" src={Moon} alt="dark-mode" />
-                    )}
-                </button> */}
                 <div className="wrapper">
-                    <section className="intro">
-                        <h1
-                            id='my-name'
-                            onClick={() => setClick(1)}
-                            className="intro__h1 shine"
-                            onAnimationEnd={() => setClick(0)}
-                            click={click}
-                        >Chris Staton</h1>
-                        {/* <p className="intro__title">Software Engineer</p> */}
-                        <p className="intro__paragraph">
-                            I'm a full-stack software engineer with 3 years of experience in React for frontend development and Flask/Node.js for backend APIs across different projects.
-                        </p>
-                    </section>
+                    <BusinessCard />
                     <Section title='Projects'>
                         <ProjectGallery />
                     </Section>
-                    <section className="projects">
-                        {projects.map((p, idx) => (
-                            <Project
-                                project={p}
-                                onClick={(e) => handleClick(e, idx)}
-                            />
-                        ))}
-                    </section>
-                    <section className="timeline">
+                    <Section title='Experience' reverse={true}>
                         <DevTimeline />
-                    </section>
-                    <section className="contact">
+                    </Section>
+                    <Section title='Contact'>
                         <ContactForm />
-                    </section>
+                    </Section>
                     <section className="footer">
                         <div className="footer__icons">
                             <a

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 const MAX = 1;
 
-const FloatBox = ({ extraClass, children }) => {
+const FloatBox = ({ extraClass, children, onClick }) => {
     const [skewDeg, setSkewDeg] = useState({ x: 0, y: 0 });
     const boxRef = useRef(null);
 
@@ -34,6 +34,7 @@ const FloatBox = ({ extraClass, children }) => {
             className={`float-box${extraClass ? ' ' + extraClass : ''}`}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
+            onClick={onClick}
             style={{
                 transform: `perspective(1000px) rotateX(${-skewDeg.x * 2}deg) rotateY(${skewDeg.y * 2}deg)`,
                 transition: 'transform 0.1s ease-out',

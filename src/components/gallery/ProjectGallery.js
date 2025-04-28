@@ -12,7 +12,7 @@ const ScrollSidebar = ({ projs, setProjs, setSelected }) => {
 
     const handleCycle = () => {
         setDisabled(true);
-        topRef.current.style.transform = 'scale(0.85) translateY(-10%)';
+        topRef.current.style.transform = 'scale(0.85) translateY(-8%)';
         topRef.current.style.transition = 'transform 0.2s ease-out';
         bottomRef.current.style.transform = 'translateY(calc(-50% - 10px))';
         bottomRef.current.style.transition = 'transform 0.4s ease-out';
@@ -44,8 +44,8 @@ const ScrollSidebar = ({ projs, setProjs, setSelected }) => {
         <div className='proj-gallery__sidebar'>
             <div className='sidebar-content'>
                 <div className='top-box' ref={topRef}>
-                    <FloatBox>
-                        <div className='project-logo' onClick={() => setSelected(projs[0])}>
+                    <FloatBox onClick={() => setSelected(projs[0])}>
+                        <div className='project-logo'>
                             {projs[0].logo}
                             <span style={{ color: projs[0].mainColor }}>{projs[0].title}</span>
                         </div>
@@ -55,8 +55,8 @@ const ScrollSidebar = ({ projs, setProjs, setSelected }) => {
                     {projs.map((p, idx) => {
                         if (idx === 0) return null;
                         return (
-                            <FloatBox key={p.domain}>
-                                <div className='project-logo' onClick={() => setSelected(p)}>
+                            <FloatBox key={p.domain} onClick={() => setSelected(p)}>
+                                <div className='project-logo' >
                                     {p.logo}
                                     <span style={{ color: p.mainColor }}>{p.title}</span>
                                 </div>
@@ -80,7 +80,7 @@ const ProjectGallery = () => {
     return (
         <div className='proj-gallery-wrap'>
             <div className='proj-gallery'>
-                <FloatBox extraClass='main-image'>
+                <FloatBox extraClass='main-image' backContent={true}>
                     <ImageViewer images={selected.images} color={selected.mainColor} />
                 </FloatBox>
                 <ScrollSidebar projs={projs} setProjs={setProjs} setSelected={setSelected} />
