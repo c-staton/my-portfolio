@@ -80,9 +80,7 @@ const ProjectGallery = () => {
     return (
         <div className='proj-gallery-wrap'>
             <div className='proj-gallery'>
-                <FloatBox extraClass='main-image' backContent={true}>
-                    <ImageViewer images={selected.images} color={selected.mainColor} />
-                </FloatBox>
+                <ImageViewer images={selected.images} color={selected.mainColor} />
                 <ScrollSidebar projs={projs} setProjs={setProjs} setSelected={setSelected} />
             </div>
             <div className='proj-title'>

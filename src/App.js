@@ -1,15 +1,9 @@
-import Project from "./components/Project";
 import DevTimeline from "./components/DevTimeline";
 import ContactForm from "./components/ContactForm";
-import Sun from "./images/sun.png";
-import Moon from "./images/moon.png";
-import { useEffect, useRef, useState } from "react";
-import { projects } from './data/projects';
-import Spotlight from './components/Spotlight';
+import { useRef } from "react";
 import posthog from 'posthog-js';
 import ProjectGallery from './components/gallery/ProjectGallery';
 import Section from './components/Section';
-import Card from './components/Card';
 import BusinessCard from './components/BusinessCard';
 
 const CURRENT_YEAR = new Date().getFullYear();
