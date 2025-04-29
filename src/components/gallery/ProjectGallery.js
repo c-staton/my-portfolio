@@ -75,7 +75,7 @@ const ScrollSidebar = ({ projs, setProjs, setSelected }) => {
 
 const ProjectGallery = () => {
     const [projs, setProjs] = useState(projects);
-    const [selected, setSelected] = useState(projects[2]);
+    const [selected, setSelected] = useState(projects[0]);
 
     return (
         <div className='proj-gallery-wrap'>

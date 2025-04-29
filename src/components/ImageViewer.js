@@ -9,6 +9,7 @@ const ImageViewer = ({ images = [], color }) => {
     const imageContainerRef = useRef(null);
 
     useEffect(() => {
+        setCurrIdx(0);
         let loadedCount = 0;
         const totalImages = images.length;
 
