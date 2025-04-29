@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 const MAX_TILT = 10;
 
-const Card = ({ frontContent, backContent, className }) => {
+const Card = ({ frontContent, backContent, className, cardClicked, setCardClicked }) => {
     const [tiltDeg, setTiltDeg] = useState({ x: 0, y: 0 });
     const [isFlipped, setIsFlipped] = useState(false);
     const [rotationDegrees, setRotationDegrees] = useState(0);
@@ -49,6 +49,7 @@ const Card = ({ frontContent, backContent, className }) => {
         }));
 
         setIsFlipped(!isFlipped);
+        setCardClicked(true);
     };
 
     const getTransform = () => {
@@ -59,12 +60,15 @@ const Card = ({ frontContent, backContent, className }) => {
 
     return (
         <div
-            className={`business-card ${className || ''}`}
+            className={`business-card ${className || ''} ${cardClicked ? 'clicked' : ''}`}
             ref={cardRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
         >
+            {!cardClicked && (
+                <div className='touchable' />
+            )}
             <div
                 className="card-inner"
                 style={{

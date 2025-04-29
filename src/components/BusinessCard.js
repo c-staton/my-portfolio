@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './Card';
 import { ReactComponent as Logo } from '../images/cs-logo.svg';
 import ArrowSectionScroll from './ArrowSectionScroll';
 
 const BusinessCard = () => {
+    const [clicked, setClicked] = useState(false);
+
     return (
         <div id='card-section'>
             <Card
+                cardClicked={clicked}
+                setCardClicked={setClicked}
                 frontContent={
                     <div className="card-content">
                         <h2>Chris Staton</h2>

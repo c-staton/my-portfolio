@@ -14,7 +14,7 @@
     cursor: pointer;
     margin: 20px;
     color: $off-white;
-    // background-color: $dark;
+    position: relative;
 
     .card-inner {
         position: relative;
@@ -279,21 +279,46 @@
     }
 }
 
+.touchable {
+    width: 50px;
+    height: 50px;
+    background-color: #D9D9D9;
+    border-radius: 99px;
+    aspect-ratio: 1 / 1;
+    left: 50px;
+    right: 0;
+    margin: auto;
+    bottom: -10px;
+    z-index: 9;
 
-.dark-mode {
-    .business-card {
-        .card-front {
-            background: linear-gradient(135deg, $dark 0%, darken($dark, 5%) 100%);
-            color: $text-dm;
-            border-color: rgba(255, 255, 255, 0.1);
-
-            .skills span {
-                background: rgba(255, 255, 255, 0.1);
-            }
-        }
-
-        .card-back {
-            background: linear-gradient(135deg, darken($dark, 5%) 0%, darken($dark, 10%) 100%);
-        }
-    }
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.6
+    );
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+    animation: infinite ripple-effect 2s ease-out;
+    animation-delay: 1s;
+    pointer-events: none;
 }
+
+@keyframes ripple-effect {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+    }
